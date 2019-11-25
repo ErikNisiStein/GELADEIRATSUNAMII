@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Cadastro">
+
+    <EditText
+        android:id="@+id/desc2"
+        android:layout_width="0dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="61dp"
+        android:layout_marginEnd="62dp"
+        android:layout_marginBottom="64dp"
+        android:ems="10"
+        android:hint="Descrição"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/date"
+        android:layout_width="107dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="138dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="xx/xx/xx"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="42dp"
+        android:onClick="voltar"
+        android:text="CANCEL"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/date" />
+
+    <Button
+        android:id="@+id/pronto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="42dp"
+        android:onClick="cadastrar"
+        android:text="PRONTO"
+        app:layout_constraintStart_toEndOf="@+id/date"
+        app:layout_constraintTop_toBottomOf="@+id/date" />
+</androidx.constraintlayout.widget.ConstraintLayout>
