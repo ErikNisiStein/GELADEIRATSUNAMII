@@ -16,7 +16,6 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
 {
-    ArrayList <Dados> jose;
     Adaptador adap;
     ListView listaProdutos;
 
@@ -38,7 +37,9 @@ public class MainActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Banco banco = new Banco(getApplicationContext());
 
+        Dados.lista = banco.carregar();
         adap = new Adaptador(this, Dados.lista);
 
         listaProdutos = findViewById(R.id.GELADEIRA);

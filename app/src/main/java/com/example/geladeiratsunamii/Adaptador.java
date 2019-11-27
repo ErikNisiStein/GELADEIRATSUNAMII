@@ -41,22 +41,25 @@ public class Adaptador extends ArrayAdapter<Dados>
     {
         LayoutInflater inflater = LayoutInflater.from(desc);
         View view = inflater.inflate(R.layout.modelo, null, true);
+        final Dados produto = this.produtos.get(position);
 
         Button ButtonDelete = view.findViewById(R.id.botaoDelete);
         TextView textViewDesc = view.findViewById(R.id.descricao);
         TextView textViewData = view.findViewById(R.id.dataDeValidade);
-        textViewDesc.setText(this.produtos.get(position).desc);
-        textViewData.setText(this.produtos.get(position).data);
+        textViewDesc.setText(produto.desc);
+        textViewData.setText(produto.data);
         ButtonDelete.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
+                Banco banco = new Banco(desc);
+                banco.removerItem(produto.id);
                 produtos.remove(position);
                 notifyDataSetChanged();
             }
         });
-        String val = this.produtos.get(position).data;
+        String val = produto.data;
         try
         {
             Date valData = new SimpleDateFormat("dd/MM/yyyy").parse(val);

@@ -40,16 +40,19 @@ public class Cadastro extends AppCompatActivity
 
     public void cadastrar(View view)
     {
+        Banco banco = new Banco(getApplicationContext());
         if (getIntent().hasExtra("position"))
         {
             int position = getIntent().getExtras().getInt("position");
             Dados alteracao = Dados.lista.get(position);
             alteracao.desc = descricao.getText().toString();
             alteracao.data = date.getText().toString();
+            banco.alterarItem(alteracao.id, alteracao.desc, alteracao.data);
         }
         else
         {
-            Dados novoDado = new Dados(descricao.getText().toString(), date.getText().toString());
+            int id = (int)banco.inserirItem(descricao.getText().toString(), date.getText().toString());
+            Dados novoDado = new Dados(id, descricao.getText().toString(), date.getText().toString());
             Dados.lista.add(novoDado);
         }
         finish();
